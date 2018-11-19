@@ -2,6 +2,7 @@ package com.udacity.sandwichclub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +32,10 @@ public class DetailActivity extends AppCompatActivity {
         // inflate activity_detail layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        // enable the up button
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         // set references for layout entities
         mDescriptionTV = findViewById(R.id.description_tv);
@@ -105,6 +110,6 @@ public class DetailActivity extends AppCompatActivity {
         }
         String formattedIngredients = builder.toString();
         mIngredientsTV.setText(formattedIngredients);
-        
+
     }
 }
