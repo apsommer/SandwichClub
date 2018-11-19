@@ -12,7 +12,6 @@
         android:layout_height="200dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/sandwich_picture_content_description"
-        android:layout_margin="12dp"
         tools:src="@mipmap/ic_launcher"
         android:scaleType="centerCrop" />
 
@@ -27,7 +26,7 @@
 
     <TextView
         android:id="@+id/place_label_tv"
-        android:layout_below="@id/description_label_tv"
+        android:layout_below="@id/description_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/detail_place_of_origin_label"
@@ -36,7 +35,7 @@
 
     <TextView
         android:id="@+id/also_known_label_tv"
-        android:layout_below="@id/place_label_tv"
+        android:layout_below="@id/origin_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/detail_also_known_as_label"
@@ -45,20 +44,12 @@
 
     <TextView
         android:id="@+id/ingredients_label_tv"
-        android:layout_below="@id/also_known_label_tv"
+        android:layout_below="@id/also_known_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/detail_ingredients_label"
         android:layout_margin="12dp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/origin_tv"
-        android:layout_toRightOf="@id/place_label_tv"
-        android:layout_alignBaseline="@id/place_label_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Locations" />
 
     <TextView
         android:id="@+id/description_tv"
@@ -69,12 +60,12 @@
         tools:text="Details" />
 
     <TextView
-        android:id="@+id/ingredients_tv"
-        android:layout_toRightOf="@id/ingredients_label_tv"
-        android:layout_alignBaseline="@id/ingredients_label_tv"
+        android:id="@+id/origin_tv"
+        android:layout_toRightOf="@id/place_label_tv"
+        android:layout_alignBaseline="@id/place_label_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Apples, bananas, chocolate, ..." />
+        tools:text="Locations" />
 
     <TextView
         android:id="@+id/also_known_tv"
@@ -83,5 +74,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Alias" />
+
+    <TextView
+        android:id="@+id/ingredients_tv"
+        android:layout_toRightOf="@id/ingredients_label_tv"
+        android:layout_alignBaseline="@id/ingredients_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Apples, bananas, chocolate, ..." />
 
 </RelativeLayout>

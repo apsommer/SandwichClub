@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -16,12 +17,24 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
+    private TextView mDescriptionTV;
+    private TextView mOriginTV;
+    private TextView mAlsoKnownAsTV;
+    private TextView mIngredientsTV;
+    private Sandwich mSandwich;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         // inflate activity_detail layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        // set references for layout entities
+        mDescriptionTV = findViewById(R.id.description_tv);
+        mOriginTV = findViewById(R.id.origin_tv);
+        mAlsoKnownAsTV = findViewById(R.id.also_known_tv);
+        mIngredientsTV = findViewById(R.id.ingredients_tv);
 
         // get reference to ImageView
         ImageView ingredientsIv = findViewById(R.id.image_iv);
@@ -45,8 +58,8 @@ public class DetailActivity extends AppCompatActivity {
         String json = sandwiches[position];
 
         // parse JSON
-        Sandwich sandwich = JsonUtils.parseSandwichJson(json);
-        if (sandwich == null) {
+        mSandwich = JsonUtils.parseSandwichJson(json);
+        if (mSandwich == null) {
             // Sandwich data unavailable
             closeOnError();
             return;
@@ -57,10 +70,10 @@ public class DetailActivity extends AppCompatActivity {
 
         // TODO What is this?
         Picasso.with(this)
-                .load(sandwich.getImage())
+                .load(mSandwich.getImage())
                 .into(ingredientsIv);
 
-        setTitle(sandwich.getMainName());
+        setTitle(mSandwich.getMainName());
     }
 
     private void closeOnError() {
@@ -69,6 +82,11 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI() {
+
+        mDescriptionTV.setText(mSandwich.getDescription());
+        mOriginTV.setText(mSandwich.getPlaceOfOrigin());
+        mAlsoKnownAsTV.setText(mSandwich.getAlsoKnownAs().toString());
+        mIngredientsTV.setText(mSandwich.getIngredients().toString());
 
     }
 }
