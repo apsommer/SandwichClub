@@ -1,7 +1,7 @@
 # Sandwich Club
 
 ## Project Overview
-**Sandwich Club** app shows the details of each sandwich once it is selected.
+**Sandwich Club** Android application shows the details of each sandwich once it is selected.
 
 Building a layout and populating its fields from data received as JSON
 is a common task for Android Developers. Although JSON parsing is usually
