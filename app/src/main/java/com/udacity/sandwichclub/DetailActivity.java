@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+// called from ActivityMain on a list item click within a ListView
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
@@ -17,16 +18,21 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // inflate activity_detail layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        // get reference to ImageView
         ImageView ingredientsIv = findViewById(R.id.image_iv);
 
+        // get intent from MainActivity
         Intent intent = getIntent();
         if (intent == null) {
             closeOnError();
         }
 
+        // extract the list item position from the intent
         int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
         if (position == DEFAULT_POSITION) {
             // EXTRA_POSITION not found in intent
@@ -34,8 +40,11 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
+        // get sandwich details in JSON format defined in strings.xml
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
         String json = sandwiches[position];
+
+        // parse JSON
         Sandwich sandwich = JsonUtils.parseSandwichJson(json);
         if (sandwich == null) {
             // Sandwich data unavailable
@@ -43,7 +52,10 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
+        // update UI with parsed JSON results
         populateUI();
+
+        // TODO What is this?
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);

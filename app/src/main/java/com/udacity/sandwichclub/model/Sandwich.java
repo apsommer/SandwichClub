@@ -2,6 +2,8 @@ package com.udacity.sandwichclub.model;
 
 import java.util.List;
 
+// custom object with simple attributes
+// exposed methods are getters and setters for each attribute
 public class Sandwich {
 
     private String mainName;

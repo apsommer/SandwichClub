@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.udacity.sandwichclub.DetailActivity">
+    tools:context="com.udacity.sandwichclub.DetailActivity" >
 
     <ImageView
         android:id="@+id/image_iv"
@@ -11,49 +12,76 @@
         android:layout_height="200dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/sandwich_picture_content_description"
+        android:layout_margin="12dp"
+        tools:src="@mipmap/ic_launcher"
         android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/origin_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
+        android:id="@+id/description_label_tv"
+        android:layout_below="@id/image_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/detail_also_known_as_label"
+        android:layout_margin="12dp"
+        android:text="@string/detail_description_label"
         android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_ingredients_label"
-        android:textStyle="bold" />
-
-    <TextView
+        android:id="@+id/place_label_tv"
+        android:layout_below="@id/description_label_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/detail_place_of_origin_label"
+        android:layout_margin="12dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/also_known_label_tv"
+        android:layout_below="@id/place_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_also_known_as_label"
+        android:textStyle="bold"
+        android:layout_margin="12dp" />
+
+    <TextView
+        android:id="@+id/ingredients_label_tv"
+        android:layout_below="@id/also_known_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_ingredients_label"
+        android:layout_margin="12dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/origin_tv"
+        android:layout_toRightOf="@id/place_label_tv"
+        android:layout_alignBaseline="@id/place_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Locations" />
 
     <TextView
         android:id="@+id/description_tv"
+        android:layout_toRightOf="@id/description_label_tv"
+        android:layout_alignBaseline="@id/description_label_tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:text="Details" />
 
     <TextView
         android:id="@+id/ingredients_tv"
+        android:layout_toRightOf="@id/ingredients_label_tv"
+        android:layout_alignBaseline="@id/ingredients_label_tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:text="Apples, bananas, chocolate, ..." />
 
     <TextView
         android:id="@+id/also_known_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
+        android:layout_toRightOf="@id/also_known_label_tv"
+        android:layout_alignBaseline="@id/also_known_label_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/detail_description_label"
-        android:textStyle="bold" />
-</FrameLayout>
+        tools:text="Alias" />
+
+</RelativeLayout>
