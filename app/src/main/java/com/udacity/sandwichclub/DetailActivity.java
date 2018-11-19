@@ -75,7 +75,7 @@ public class DetailActivity extends AppCompatActivity {
         // update UI with parsed JSON results
         populateUI();
 
-        // TODO external library assists with downloading image from HTTP source
+        // Picasso external library assists with downloading image from HTTP source
         Picasso.with(this).load(mSandwich.getImage()).into(ingredientsIv);
 
         // set title in App Bar
