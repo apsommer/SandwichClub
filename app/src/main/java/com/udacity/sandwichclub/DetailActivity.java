@@ -11,6 +11,8 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import java.util.List;
+
 // called from ActivityMain on a list item click within a ListView
 public class DetailActivity extends AppCompatActivity {
 
@@ -68,11 +70,10 @@ public class DetailActivity extends AppCompatActivity {
         // update UI with parsed JSON results
         populateUI();
 
-        // TODO What is this?
-        Picasso.with(this)
-                .load(mSandwich.getImage())
-                .into(ingredientsIv);
+        // TODO external library assists with downloading image from HTTP source
+        Picasso.with(this).load(mSandwich.getImage()).into(ingredientsIv);
 
+        // set title in App Bar
         setTitle(mSandwich.getMainName());
     }
 
@@ -83,10 +84,27 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI() {
 
-        mDescriptionTV.setText(mSandwich.getDescription());
+        // origin and description are simple Strings
         mOriginTV.setText(mSandwich.getPlaceOfOrigin());
-        mAlsoKnownAsTV.setText(mSandwich.getAlsoKnownAs().toString());
-        mIngredientsTV.setText(mSandwich.getIngredients().toString());
+        mDescriptionTV.setText(mSandwich.getDescription());
 
+        // format the List<String> for UI presentation
+        List<String> stringList = mSandwich.getAlsoKnownAs();
+        StringBuilder builder = new StringBuilder();
+        for (String value : stringList) {
+            builder.append(value);
+        }
+        String formattedAlsoKnownAs = builder.toString();
+        mAlsoKnownAsTV.setText(formattedAlsoKnownAs);
+
+        // format the List<String> for UI presentation
+        stringList = mSandwich.getIngredients();
+        builder.setLength(0); // clear the builder for re-use
+        for (String value : stringList) {
+            builder.append(value);
+        }
+        String formattedIngredients = builder.toString();
+        mIngredientsTV.setText(formattedIngredients);
+        
     }
 }
