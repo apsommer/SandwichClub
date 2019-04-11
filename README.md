@@ -1,16 +1,11 @@
 # Sandwich Club
 
-## Project Overview
-**Sandwich Club** Android application shows the details of each sandwich once it is selected.
+This is an Android app that shows the details of various sandwiches, created as part of the [Android Developer Nanodegree by Google](https://www.udacity.com/course/android-developer-nanodegree-by-google--nd801).
 
-Building a layout and populating its fields from data received as JSON
-is a common task for Android Developers. Although JSON parsing is usually
-done using libraries, writing the JSON parsing for this project helps better understanding of how it is processed.
+Building a layout and populating its fields from data received as JSON is a common task for Android Developers. Although JSON parsing is usually done using libraries, writing the JSON parsing for this project helps to better understand how it is processed.
 
-- Practice JSON parsing to a model object
-- Design an activity layout
-- Populate all fields in the layout accordingly
+### Skills Demonstrated
 
-Design the layout for the detail activity so the different elements
-display in a sensible way. Implement the JSON parsing in JsonUtils so it
-produces a Sandwich Object that can be used to populate the UI.
+- JSON parsing to a model object.
+- Design an activity layout.
+- Populate fields in a layout.
